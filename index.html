@@ -21,6 +21,7 @@
 
       html {
         scroll-behavior: smooth;
+        scroll-snap-type: y mandatory;
       }
 
       body {
@@ -29,6 +30,7 @@
         color: #2a2a2a;
         line-height: 1.6;
         font-weight: 300;
+        margin: 0;
       }
 
       section {
@@ -39,6 +41,7 @@
         align-items: center;
         padding: 2rem;
         position: relative;
+        scroll-snap-align: start;
       }
 
       .hero {
@@ -244,7 +247,7 @@
 
       .rsvp {
         background-color: #fafafa;
-        padding: 4rem 2rem;
+        padding: 0;
         text-align: center;
       }
 
