@@ -1,18 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hy">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gurgen & Shushan - April 25, 2026</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
+    <title>Գուրգեն և Շուշան - 25 ապրիլի, 2026</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <style>
+      @font-face {
+        font-family: 'PingAmL';
+        src: url('./PingAmL-Regular.otf') format('opentype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'PingAmL';
+        src: url('./PingAmL-Medium.otf') format('opentype');
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'PingAmL';
+        src: url('./PingAmL-Bold.otf') format('opentype');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'PingAmL';
+        src: url('./PingAmL-Black.otf') format('opentype');
+        font-weight: 900;
+        font-style: normal;
+        font-display: swap;
+      }
+
       * {
         margin: 0;
         padding: 0;
@@ -25,7 +53,7 @@
       }
 
       body {
-        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-family: 'PingAmL', Georgia, serif;
         background-color: #fafafa;
         color: #2a2a2a;
         line-height: 1.6;
@@ -52,16 +80,36 @@
         padding-bottom: 6rem;
       }
 
+      .hero-top-left,
+      .hero-bottom-left {
+        position: absolute;
+        left: clamp(1rem, 3vw, 2.5rem);
+        z-index: 1;
+        color: #fff;
+        line-height: 1.4;
+      }
+
+      .hero-top-left {
+        top: clamp(1rem, 3vw, 2.5rem);
+        font-size: clamp(1.8rem, 4.8vw, 4rem);
+        font-weight: 700;
+      }
+
+      .hero-bottom-left {
+        bottom: clamp(1rem, 3vw, 2.5rem);
+        font-size: clamp(1rem, 2vw, 2rem);
+        font-weight: 400;
+        opacity: 0.95;
+        max-width: 50vw;
+      }
+
       .hero-bg {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: url('https://optim.tildacdn.ink/tild3132-3738-4362-a537-393363383932/-/format/webp/Untitled-1.jpg.webp')
-          center/cover no-repeat;
-        filter: grayscale(100%) blur(3px) brightness(0.7);
-        transform: scale(1.1);
+        background: url('./banner.webp') center/cover no-repeat;
       }
 
       .hero-title {
@@ -81,7 +129,7 @@
       }
 
       .hero-title p {
-        font-family: 'Montserrat', sans-serif;
+        font-family: 'PingAmL', sans-serif;
         font-size: clamp(0.75rem, 2vw, 1rem);
         font-weight: 300;
         letter-spacing: 0.4em;
@@ -95,7 +143,7 @@
         left: 50%;
         transform: translateX(-50%);
         color: #fff;
-        font-family: 'Montserrat', sans-serif;
+        font-family: 'PingAmL', sans-serif;
         font-size: 0.65rem;
         letter-spacing: 0.3em;
         text-transform: uppercase;
@@ -153,47 +201,131 @@
       }
 
       .venue {
-        background-color: #f0f0f0;
+        background: radial-gradient(circle at 12% 15%, rgba(255, 255, 255, 0.85), transparent 46%),
+          radial-gradient(circle at 88% 80%, rgba(40, 40, 40, 0.12), transparent 44%),
+          linear-gradient(140deg, #f7f7f7 0%, #ececec 55%, #e1e1e1 100%);
         text-align: center;
         padding: 0;
         min-height: 100vh;
+        overflow: hidden;
       }
 
       .venue-content {
+        width: 100%;
+        height: 100vh;
+        height: 100svh;
+        max-height: 100vh;
+        padding: clamp(1rem, 3.5vh, 2.25rem) clamp(1rem, 2.5vw, 2rem);
+        display: grid;
+        grid-template-rows: 1fr;
+        align-content: center;
+      }
+
+      .venue-layout {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          'qa'
+          'photo'
+          'map';
+        grid-template-rows: auto minmax(0, 1fr) minmax(0, 0.9fr);
+        width: 100%;
+        height: 100%;
+        gap: clamp(0.9rem, 1.8vh, 1.25rem);
+        align-items: stretch;
+        text-align: left;
+        min-height: 0;
+      }
+
+      .venue-qa {
+        grid-area: qa;
+        background: rgba(255, 255, 255, 0.86);
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 22px;
+        padding: clamp(1.2rem, 2.7vw, 2.2rem);
+        backdrop-filter: blur(6px);
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
+        opacity: 0;
+        transform: translateY(28px) scale(0.98);
+        animation: venueReveal 0.85s ease-out forwards;
+      }
+
+      .qa-item {
+        padding: 0.85rem 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+        opacity: 0;
+        transform: translateX(-14px);
+        animation: qaSlide 0.7s ease-out forwards;
+      }
+
+      .qa-item:nth-child(1) {
+        animation-delay: 0.22s;
+      }
+
+      .qa-item:nth-child(2) {
+        animation-delay: 0.34s;
+      }
+
+      .qa-item:last-child {
+        border-bottom: none;
+      }
+
+      .qa-q {
+        font-size: 0.95rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #555;
+        margin-bottom: 0.35rem;
+      }
+
+      .qa-a {
+        font-size: clamp(1.3rem, 2.8vw, 1.95rem);
+        color: #111;
+        font-weight: 500;
+        line-height: 1.25;
+      }
+
+      .venue-photo {
+        grid-area: photo;
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        min-height: clamp(260px, 48vh, 520px);
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+        opacity: 0;
+        transform: translateY(30px);
+        animation: venueReveal 0.95s ease-out forwards;
+        animation-delay: 0.2s;
+        height: 100%;
+      }
+
+      .venue-photo img {
         width: 100%;
         height: 100%;
-        padding: 4rem 2rem;
+        object-fit: cover;
+        transform: scale(1.02);
       }
 
-      .venue h2 {
-        font-size: clamp(2rem, 5vw, 3.5rem);
-        font-weight: 300;
-        font-style: italic;
-        margin-bottom: 0.5rem;
+      .venue-map {
+        grid-area: map;
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        min-height: clamp(180px, 26vh, 300px);
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+        opacity: 0;
+        transform: translateY(30px);
+        animation: venueReveal 0.95s ease-out forwards;
+        animation-delay: 0.32s;
+        height: 100%;
       }
 
-      .venue-name {
-        font-size: clamp(1.3rem, 3vw, 2rem);
-        color: #777;
-        margin-bottom: 3rem;
-        font-style: italic;
-        font-weight: 400;
-      }
-
-      .map-container {
+      .venue-map iframe {
         width: 100%;
-        padding: 0 4rem;
-      }
-
-      .map-container iframe {
-        width: 100%;
-        height: calc(100% - 20vh);
-        border: none;
-        border-radius: 4px;
+        height: 100%;
+        border: 0;
       }
 
       .dress-code {
@@ -204,14 +336,15 @@
         overflow: hidden;
       }
 
-      .dress-code-bg {
+      .dress-code-video {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: url('2.webp') center/cover no-repeat fixed;
-        filter: grayscale(100%) blur(3px) brightness(0.7);
+        object-fit: cover;
+        object-position: 60% center;
+        /* filter: grayscale(100%) brightness(0.7); */
       }
 
       .dress-code-overlay {
@@ -221,8 +354,8 @@
         width: 100%;
         height: 100%;
         background: rgba(20, 20, 20, 0.6);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
       }
 
       .dress-code-content {
@@ -259,7 +392,7 @@
       .footer {
         padding: 1.5rem;
         text-align: center;
-        font-family: 'Montserrat', sans-serif;
+        font-family: 'PingAmL', sans-serif;
         font-size: 0.7rem;
         font-weight: 400;
         letter-spacing: 0.2em;
@@ -295,7 +428,47 @@
         }
       }
 
+      @keyframes venueReveal {
+        from {
+          opacity: 0;
+          transform: translateY(28px) scale(0.98);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      @keyframes qaSlide {
+        from {
+          opacity: 0;
+          transform: translateX(-14px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
       @media (max-width: 768px) {
+        .hero-top-left {
+          font-size: clamp(2.1rem, 8vw, 3.3rem);
+        }
+
+        .hero-bottom-left {
+          font-size: clamp(1.3rem, 4.8vw, 2.4rem);
+          max-width: 78vw;
+          line-height: 1.35;
+        }
+
+        .hero {
+          background-color: #111;
+        }
+
+        .hero-bg {
+          background: url('./banner.webp') center/contain no-repeat;
+        }
+
         .photo-grid {
           grid-template-columns: 1fr 1fr;
           grid-template-rows: 250px 200px;
@@ -310,18 +483,108 @@
           height: 100%;
         }
 
-        .map-container {
-          padding: 0;
-          height: calc(100vh - 200px);
+        .venue-layout {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto minmax(0, 1fr) minmax(0, 0.9fr);
+          gap: 0.9rem;
+          width: 100%;
         }
 
-        .map-container iframe {
+        .venue-content {
+          height: 100vh;
+          height: 100svh;
+          max-height: 100vh;
+          padding: clamp(0.9rem, 2.8vh, 1.2rem) 1rem;
+        }
+
+        .venue-qa {
+          padding: 1rem;
+        }
+
+        .qa-item {
+          padding: 0.6rem 0;
+        }
+
+        .qa-a {
+          font-size: clamp(1.2rem, 6vw, 1.55rem);
+        }
+
+        .venue-photo {
+          min-height: 0;
+        }
+
+        .venue-map {
+          min-height: 0;
+        }
+
+        .dress-code-content {
+          padding: 0 1.25rem;
+        }
+
+        .intro-content {
+          padding: 3rem 2rem;
+        }
+      }
+
+      @media (min-width: 900px) {
+        .venue-layout {
+          grid-template-columns: minmax(320px, 0.95fr) minmax(460px, 1.25fr);
+          grid-template-areas:
+            'qa photo'
+            'map photo';
+          grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+          gap: clamp(1rem, 2vw, 2rem);
+        }
+
+        .venue-qa,
+        .venue-map,
+        .venue-photo {
+          min-height: 0;
           height: 100%;
         }
+      }
 
-        .intro-content,
-        .venue-content {
-          padding: 3rem 2rem;
+      @media (min-width: 1200px) {
+        .qa-a {
+          font-size: clamp(1.6rem, 2.1vw, 2.2rem);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .venue-qa,
+        .venue-photo,
+        .venue-map,
+        .qa-item {
+          animation: none;
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      @media (max-width: 768px) and (orientation: portrait) {
+        .hero-bg {
+          background: url('./banner-vertical.webp') center/cover no-repeat;
+        }
+
+        .hero-top-left {
+          top: clamp(6.2rem, 18vh, 10rem);
+          left: 50%;
+          transform: translateX(-50%);
+          text-align: center;
+          font-size: clamp(1.55rem, 6.2vw, 2.4rem);
+          width: 100%;
+          line-height: 1.25;
+        }
+
+        .hero-bottom-left {
+          top: clamp(13.5rem, 34vw, 18rem);
+          bottom: auto;
+          left: 50%;
+          transform: translateX(-50%);
+          text-align: center;
+          font-size: clamp(0.95rem, 3.8vw, 1.35rem);
+          width: 100%;
+          line-height: 1.2;
         }
       }
     </style>
@@ -329,43 +592,34 @@
   <body>
     <section class="hero">
       <div class="hero-bg"></div>
-      <div class="hero-title">
-        <h1>Gurgen & Shushan</h1>
-        <p>Save The Date • April 25, 2026</p>
-      </div>
-      <div class="scroll-indicator">↓ SCROLL ↓</div>
-    </section>
-
-    <section class="intro">
-      <div class="intro-content">
-        <h2>We're Getting Married!</h2>
-        <p>
-          It started with a hello and turned into forever. We are thrilled to celebrate our special
-          day with the people we love most.
-        </p>
-        <p>
-          Join us for an evening of joy, laughter, and celebration as we begin this new chapter
-          together.
-        </p>
-
-        <div class="photo-grid">
-          <img src="1.webp" alt="Couple photo 1" class="photo-main" />
-          <img src="2.webp" alt="Couple photo 2" />
-          <img src="3.webp" alt="Couple photo 3" />
-        </div>
-      </div>
+      <p class="hero-top-left">Մենք ամուսնանում ենք</p>
+      <p class="hero-bottom-left">
+        ուրախ կլինենք կիսել մեր սերը և ուրախությունը ամենասիրելիների հետ
+      </p>
     </section>
 
     <section class="venue">
       <div class="venue-content">
-        <h2>The Venue</h2>
-        <p class="venue-name">Ohana Yerevan</p>
-        <div class="map-container">
-          <div style="left: 0; width: 100%; height: 100%; position: relative; padding-bottom: 75%">
+        <div class="venue-layout">
+          <div class="venue-qa">
+            <div class="qa-item">
+              <p class="qa-q">Ե՞րբ</p>
+              <p class="qa-a">Ապրիլ 25, 17:30</p>
+            </div>
+            <div class="qa-item">
+              <p class="qa-q">Որտե՞ղ</p>
+              <p class="qa-a">Օհանա, Երևան</p>
+            </div>
+          </div>
+          <div class="venue-photo">
+            <img src="./venue.webp" alt="Ohana venue" loading="lazy" />
+          </div>
+          <div class="venue-map">
             <iframe
               src="https://yandex.com/map-widget/v1/-/CPEuV03b"
-              style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0"
               allowfullscreen
+              loading="lazy"
+              title="Ohana venue map"
             ></iframe>
           </div>
         </div>
@@ -373,11 +627,20 @@
     </section>
 
     <section class="dress-code">
-      <div class="dress-code-bg"></div>
+      <video
+        class="dress-code-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="none"
+        poster="r1.webp"
+      >
+        <source src="dance-web.webm" type="video/webm" />
+      </video>
       <div class="dress-code-overlay"></div>
       <div class="dress-code-content">
-        <h2>Dress Code</h2>
-        <p>Just look stunning and get ready to dance!</p>
+        <p>պատրաստ եղեք ամբողջ երեկո պարելու</p>
       </div>
     </section>
 
